@@ -14,7 +14,6 @@ export default function Navbar() {
     { path: '/features', label: 'Features' },
     { path: '/pricing', label: 'Pricing' },
     { path: '/promotion', label: 'Promotion' },
-    { path: '/swot', label: 'SWOT' },
     { path: '/contact', label: 'Contact' },
     { path : '/order' ,label : 'Order'}
   ];
