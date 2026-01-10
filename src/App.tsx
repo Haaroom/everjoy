@@ -6,7 +6,6 @@ import Philosophy from './pages/Philosophy';
 import Features from './pages/Features';
 import Pricing from './pages/Pricing';
 import Promotion from './pages/Promotion';
-import SWOT from './pages/SWOT';
 import Bibliography from './pages/Bibliography';
 import Contact from './pages/Contact';
 import Order from './pages/Order';
@@ -23,7 +22,6 @@ function App() {
             <Route path="/features" element={<Features />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/promotion" element={<Promotion />} />
-            <Route path="/swot" element={<SWOT />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/Order" element={<Order />} />
           </Routes>
