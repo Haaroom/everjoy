@@ -16,7 +16,7 @@ export default function Navbar() {
     { path: '/promotion', label: 'Promotion' },
     { path: '/swot', label: 'SWOT' },
     { path: '/bibliography', label: 'Bibliography' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/Order', label: 'order' },
   ];
 
   const isActive = (path: string) => location.pathname === path;
