@@ -1,7 +1,10 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useState } from 'react';
+import { useScrollRevealChildren } from '../hooks/useScrollReveal';
 
 export default function Contact() {
+  const containerRef = useScrollRevealChildren();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,23 +24,23 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#5D4037] via-[#4E342E] to-[#3E2723]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 text-center">
+    <div className="min-h-screen bg-gradient-to-br from-[#5D4037] via-[#4E342E] to-[#3E2723] page-container">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16" ref={containerRef}>
+        <div className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 mb-12 scroll-reveal card-animate">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 text-center animate-fade-in-up">
             CONTACT <span className="text-[#D4AF37]">US</span>
           </h1>
-          <p className="text-lg text-[#5D4037] leading-relaxed text-center max-w-3xl mx-auto">
+          <p className="text-lg text-[#5D4037] leading-relaxed text-center max-w-3xl mx-auto animate-fade-in-up stagger-2">
             Have questions about our products or want to place a bulk order? We'd love to hear from you!
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          <div className="bg-[#FFF8E1] rounded-xl p-8 shadow-lg">
-            <h2 className="text-3xl font-bold text-[#3E2723] mb-8">Get in Touch</h2>
+          <div className="bg-[#FFF8E1] rounded-xl p-8 shadow-lg scroll-reveal card-animate">
+            <h2 className="text-3xl font-bold text-[#3E2723] mb-8 animate-fade-in-up">Get in Touch</h2>
 
             <div className="space-y-6">
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-4 scroll-reveal">
                 <div className="bg-[#D4AF37] p-3 rounded-full">
                   <Mail className="text-[#3E2723]" size={24} />
                 </div>
@@ -47,7 +50,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-4 scroll-reveal">
                 <div className="bg-[#D4AF37] p-3 rounded-full">
                   <Phone className="text-[#3E2723]" size={24} />
                 </div>
@@ -57,7 +60,7 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-4 scroll-reveal">
                 <div className="bg-[#D4AF37] p-3 rounded-full">
                   <MapPin className="text-[#3E2723]" size={24} />
                 </div>
@@ -68,8 +71,8 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="mt-8 pt-8 border-t border-[#5D4037]/20">
-              <h3 className="text-xl font-bold text-[#3E2723] mb-4">Follow Us</h3>
+            <div className="mt-8 pt-8 border-t border-[#5D4037]/20 scroll-reveal">
+              <h3 className="text-xl font-bold text-[#3E2723] mb-4 animate-fade-in-up">Follow Us</h3>
               <div className="bg-gradient-to-r from-[#6D4C41] to-[#5D4037] rounded-lg p-4 text-center">
                 <p className="text-[#D4AF37] font-semibold mb-2">Instagram</p>
                 <p className="text-2xl font-bold text-[#FFF8E1]">@EVERJOY_Chocolates</p>
@@ -77,8 +80,8 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-[#FFF8E1] rounded-xl p-8 shadow-lg">
-            <h2 className="text-3xl font-bold text-[#3E2723] mb-6">Send us a Message</h2>
+          <div className="bg-[#FFF8E1] rounded-xl p-8 shadow-lg scroll-reveal card-animate">
+            <h2 className="text-3xl font-bold text-[#3E2723] mb-6 animate-fade-in-up">Send us a Message</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-[#3E2723] mb-2">
@@ -156,7 +159,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#C5A572] text-[#3E2723] font-bold py-4 px-6 rounded-lg hover:shadow-xl transition-all hover:scale-105"
+                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#C5A572] text-[#3E2723] font-bold py-4 px-6 rounded-lg hover:shadow-xl transition-all btn-hover-lift"
               >
                 Send Message
               </button>
@@ -164,14 +167,14 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-[#D4AF37] to-[#C5A572] rounded-2xl shadow-2xl p-8 md:p-12 mt-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-4">
+        <div className="bg-gradient-to-r from-[#D4AF37] to-[#C5A572] rounded-2xl shadow-2xl p-8 md:p-12 mt-12 text-center scroll-reveal card-animate">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-4 animate-fade-in-up">
             Special Offer for Teachers & Students
           </h2>
-          <p className="text-lg text-[#3E2723] mb-4">
+          <p className="text-lg text-[#3E2723] mb-4 animate-fade-in-up stagger-2">
             Use code <span className="font-bold">EVERJOY30VIP</span> for 30% off on all purchases
           </p>
-          <p className="text-[#3E2723]/80">
+          <p className="text-[#3E2723]/80 animate-fade-in-up stagger-3">
             Perfect for classroom demonstrations and school events!
           </p>
         </div>
