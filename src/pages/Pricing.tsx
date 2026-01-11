@@ -1,8 +1,4 @@
-import { useScrollRevealChildren } from '../hooks/useScrollReveal';
-
 export default function Pricing() {
-  const containerRef = useScrollRevealChildren();
-
   const pricingData = [
     { weight: '50g', dark: 59, white: 66, fruitNut: 72, darkWhite: 59 },
     { weight: '100g', dark: 109, white: 114, fruitNut: 123, darkWhite: 109 },
@@ -43,29 +39,29 @@ export default function Pricing() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#5D4037] via-[#4E342E] to-[#3E2723] page-container">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" ref={containerRef}>
-        <div className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 mb-12 scroll-reveal card-animate">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 text-center animate-fade-in-up">
+    <div className="min-h-screen bg-gradient-to-br from-[#5D4037] via-[#4E342E] to-[#3E2723]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 text-center">
             PRICING <span className="text-[#D4AF37]">STRATEGY</span>
           </h1>
-          <p className="text-lg text-[#5D4037] leading-relaxed text-center max-w-4xl mx-auto animate-fade-in-up stagger-2">
+          <p className="text-lg text-[#5D4037] leading-relaxed text-center max-w-4xl mx-auto">
             Pricing is crucial for achieving objectives like profit maximization and market penetration. Our profit margin is set at 25% from the cost of production.
           </p>
         </div>
 
-        <section className="mb-12 scroll-reveal">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#D4AF37] mb-8 text-center animate-fade-in-up">
+        <section className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#D4AF37] mb-8 text-center">
             MARKETING MIX: THE 4 P's
           </h2>
-          <p className="text-lg text-[#FFF8E1] text-center mb-8 max-w-3xl mx-auto animate-fade-in-up stagger-2">
+          <p className="text-lg text-[#FFF8E1] text-center mb-8 max-w-3xl mx-auto">
             The marketing mix, or the four P's (Product, Price, Place, Promotion), are key elements of a marketing strategy. Businesses maximize product recognition and sales by focusing on these components.
           </p>
           <div className="grid md:grid-cols-2 gap-6">
             {fourPs.map((p) => (
               <div
                 key={p.number}
-                className="bg-[#FFF8E1] rounded-xl p-6 shadow-lg scroll-reveal card-animate"
+                className="bg-[#FFF8E1] rounded-xl p-6 shadow-lg"
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#D4AF37] text-[#3E2723] flex items-center justify-center text-2xl font-bold">
@@ -81,8 +77,8 @@ export default function Pricing() {
           </div>
         </section>
 
-        <section className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-6 md:p-12 mb-12 scroll-reveal card-animate">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#3E2723] mb-6 text-center animate-fade-in-up">
+        <section className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-6 md:p-12 mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#3E2723] mb-6 text-center">
             Pricing by Quantity & Flavor
           </h2>
           <div className="overflow-x-auto">
@@ -112,19 +108,16 @@ export default function Pricing() {
               </tbody>
             </table>
           </div>
-          <p className="text-sm text-[#5D4037] mt-6 text-center italic">
-            <strong>Note:</strong> White and Fruit & Nut chocolates are priced higher due to 28% GST.
-          </p>
         </section>
 
         <section className="grid md:grid-cols-2 gap-8">
-          <div className="bg-[#FFF8E1] rounded-xl p-8 shadow-lg scroll-reveal card-animate">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-6 animate-fade-in-up">
+          <div className="bg-[#FFF8E1] rounded-xl p-8 shadow-lg">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-6">
               Factors Affecting <span className="text-[#D4AF37]">Price</span>
             </h3>
             <ul className="space-y-3">
               {factors.map((factor, index) => (
-                <li key={index} className="flex items-center space-x-3 scroll-reveal">
+                <li key={index} className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-[#D4AF37] rounded-full"></div>
                   <span className="text-lg text-[#5D4037]">{factor}</span>
                 </li>
@@ -132,11 +125,11 @@ export default function Pricing() {
             </ul>
           </div>
 
-          <div className="bg-gradient-to-br from-[#D4AF37] to-[#C5A572] rounded-xl p-8 shadow-lg flex flex-col justify-center scroll-reveal card-animate">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-4 text-center animate-fade-in-up">
+          <div className="bg-gradient-to-br from-[#D4AF37] to-[#C5A572] rounded-xl p-8 shadow-lg flex flex-col justify-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-4 text-center">
               PROFIT MARGIN & DISTRIBUTION
             </h3>
-            <p className="text-lg text-[#3E2723] leading-relaxed text-center animate-fade-in-up stagger-2">
+            <p className="text-lg text-[#3E2723] leading-relaxed text-center">
               Our profit margin is set at 25% of the production cost, balancing competitive pricing with sustainable growth.
             </p>
           </div>

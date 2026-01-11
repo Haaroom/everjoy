@@ -17,7 +17,6 @@ export default function Order() {
     fruitnut: "Fruit & Nut Chocolate",
   };
 
-  const [email, setEmail] = useState("");
   const [chocolate, setChocolate] = useState("");
   const [quantity, setQuantity] = useState("");
   const [confirmed, setConfirmed] = useState(false);
@@ -30,12 +29,9 @@ export default function Order() {
 
   const handlePurchase = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!price || !email) return;
-
+    if (!price) return;
     setConfirmed(true);
-
     setTimeout(() => {
-      setEmail("");
       setChocolate("");
       setQuantity("");
       setConfirmed(false);
@@ -44,31 +40,16 @@ export default function Order() {
 
   return (
     <>
-      <main className="order-page page-container">
-        <div className="order-container scroll-reveal card-animate">
-          <div className="order-header animate-fade-in-up">
+      <main className="order-page">
+        <div className="order-container">
+          <div className="order-header">
             <h1>
               Order <span>EVERJOY</span>
             </h1>
-            <p className="animate-fade-in-up stagger-2">Premium handcrafted chocolate delivery</p>
+            <p>Premium handcrafted chocolate delivery</p>
           </div>
 
           <form className="order-form" onSubmit={handlePurchase}>
-            {/* Email */}
-            <div className="form-group">
-              <label>Email *</label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  setConfirmed(false);
-                }}
-                required
-              />
-            </div>
-
             {/* Chocolate Type */}
             <div className="form-group">
               <label>Chocolate Type *</label>
@@ -108,7 +89,7 @@ export default function Order() {
               </select>
             </div>
 
-            {/* Price */}
+            {/* Price Display */}
             <div className={`price-display ${price ? "active" : ""}`}>
               <div className="price-label">Total Price</div>
               <div className="price-amount">
@@ -118,26 +99,21 @@ export default function Order() {
 
             <button
               className="purchase-btn"
-              disabled={!price || !email}
+              disabled={!price}
               type="submit"
             >
               Purchase
             </button>
 
             {confirmed && price && (
-              <div className="confirmation animate-fade-in-up">
-                <div className="confirmation-header">
-                  Order Confirmed!
-                </div>
+              <div className="confirmation show">
+                <div className="confirmation-header">Order Confirmed!</div>
                 <div>
-                  Confirmation sent to <strong>{email}</strong>
-                </div>
-                <div>
-                  You ordered{" "}
-                  <strong>{chocolateNames[chocolate]}</strong>{" "}
-                  (<strong>
+                  You purchased{" "}
+                  <strong>{chocolateNames[chocolate]}</strong> of{" "}
+                  <strong>
                     {quantity === "1000" ? "1 kg" : `${quantity}g`}
-                  </strong>)
+                  </strong>{" "}
                   for <strong>₹{price}</strong>.
                 </div>
               </div>
@@ -155,116 +131,83 @@ export default function Order() {
         .order-page {
           min-height: 100vh;
           background: linear-gradient(135deg,#5D4037,#3E2723);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 2rem;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          padding:2rem;
         }
 
         .order-container {
-          background: #FFF8E1;
-          padding: 3rem;
-          border-radius: 2rem;
-          max-width: 600px;
-          width: 100%;
-          box-shadow: 0 20px 60px rgba(0,0,0,.3);
+          background:#FFF8E1;
+          padding:3rem;
+          border-radius:2rem;
+          max-width:600px;
+          width:100%;
+          box-shadow:0 20px 60px rgba(0,0,0,.3);
         }
 
         .order-header h1 span {
-          color: #D4AF37;
+          color:#D4AF37;
         }
 
         .order-form {
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
+          display:flex;
+          flex-direction:column;
+          gap:1.5rem;
         }
 
-        label {
-          font-weight: 600;
-          margin-bottom: .3rem;
-          display: block;
-        }
-
-        select,
-        input {
-          padding: .75rem;
-          border-radius: .75rem;
-          border: 2px solid #D4AF37;
-          font-size: 1rem;
-          width: 100%;
-          transition: all 0.2s ease-out;
-        }
-
-        input:focus,
-        select:focus {
-          outline: none;
-          box-shadow: 0 0 0 2px rgba(212,175,55,.3);
-          transform: scale(1.01);
+        select {
+          padding:.75rem;
+          border-radius:.75rem;
+          border:2px solid #D4AF37;
+          font-size:1rem;
         }
 
         .price-display {
-          opacity: 0;
-          transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-          background: linear-gradient(135deg,#D4AF37,#C5A572);
-          padding: 1.5rem;
-          border-radius: 1rem;
-          text-align: center;
-          transform: translateY(10px);
+          opacity:0;
+          transition:.3s;
+          background:linear-gradient(135deg,#D4AF37,#C5A572);
+          padding:1.5rem;
+          border-radius:1rem;
+          text-align:center;
         }
 
         .price-display.active {
-          opacity: 1;
-          transform: translateY(0);
+          opacity:1;
         }
 
         .price-amount {
-          font-size: 2.5rem;
-          font-weight: bold;
+          font-size:2.5rem;
+          font-weight:bold;
         }
 
         .purchase-btn {
-          padding: 1rem;
-          border: none;
-          border-radius: .75rem;
-          font-weight: 600;
-          background: #D4AF37;
-          cursor: pointer;
-          transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .purchase-btn:not(:disabled):hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .purchase-btn:not(:disabled):active {
-          transform: scale(0.98);
+          padding:1rem;
+          border:none;
+          border-radius:.75rem;
+          font-weight:600;
+          background:#D4AF37;
+          cursor:pointer;
         }
 
         .purchase-btn:disabled {
-          background: #ccc;
-          cursor: not-allowed;
+          background:#ccc;
+          cursor:not-allowed;
         }
 
         .confirmation {
-          margin-top: 1rem;
-          background: #E8F5E9;
-          border-left: 4px solid #4CAF50;
-          padding: 1rem;
-          border-radius: .75rem;
-        }
-
-        .confirmation-header {
-          font-weight: bold;
-          margin-bottom: .5rem;
+          margin-top:1rem;
+          background:#E8F5E9;
+          border-left:4px solid #4CAF50;
+          padding:1rem;
+          border-radius:.75rem;
         }
 
         .tagline {
-          text-align: center;
-          margin-top: 2rem;
-          color: #5D4037;
-          font-style: italic;
+          text-align:center;
+          margin-top:2rem;
+          color:#5D4037;
+          font-style:italic;
         }
       `}</style>
     </>

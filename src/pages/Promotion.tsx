@@ -1,8 +1,4 @@
-import { useScrollRevealChildren } from '../hooks/useScrollReveal';
-
 export default function Promotion() {
-  const containerRef = useScrollRevealChildren();
-
   const promotionMix = [
     {
       title: 'Advertising',
@@ -42,13 +38,13 @@ export default function Promotion() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#5D4037] via-[#4E342E] to-[#3E2723] page-container">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" ref={containerRef}>
-        <div className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 mb-12 scroll-reveal card-animate">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 text-center animate-fade-in-up">
+    <div className="min-h-screen bg-gradient-to-br from-[#5D4037] via-[#4E342E] to-[#3E2723]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 text-center">
             PROMOTION: <span className="text-[#D4AF37]">Inform, Persuade, Influence</span>
           </h1>
-          <p className="text-lg text-[#5D4037] leading-relaxed text-center max-w-4xl mx-auto animate-fade-in-up stagger-2">
+          <p className="text-lg text-[#5D4037] leading-relaxed text-center max-w-4xl mx-auto">
             Promotion is a key element of the marketing mix, aiming to inform, persuade, and influence customers.
           </p>
         </div>
@@ -58,7 +54,7 @@ export default function Promotion() {
             {goals.map((goal, index) => (
               <div
                 key={index}
-                className="bg-[#FFF8E1] rounded-xl p-6 shadow-lg text-center scroll-reveal card-animate"
+                className="bg-[#FFF8E1] rounded-xl p-6 shadow-lg text-center"
               >
                 <h3 className="text-2xl font-bold text-[#3E2723] mb-3">{goal.title}</h3>
                 <p className="text-[#5D4037]">{goal.description}</p>
@@ -67,18 +63,18 @@ export default function Promotion() {
           </div>
         </section>
 
-        <section className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 mb-12 scroll-reveal card-animate">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#3E2723] mb-8 text-center animate-fade-in-up">
+        <section className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#3E2723] mb-8 text-center">
             The Promotion <span className="text-[#D4AF37]">Mix</span>
           </h2>
-          <p className="text-lg text-[#5D4037] text-center mb-8 animate-fade-in-up stagger-2">
+          <p className="text-lg text-[#5D4037] text-center mb-8">
             Our promotion mix combines various tools to achieve marketing and communication goals.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {promotionMix.map((item, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-[#6D4C41] to-[#5D4037] text-[#FFF8E1] rounded-xl p-6 scroll-reveal card-animate transition-all"
+                className="bg-gradient-to-br from-[#6D4C41] to-[#5D4037] text-[#FFF8E1] rounded-xl p-6 hover:scale-105 transition-transform"
               >
                 <h3 className="text-xl font-bold mb-3 text-[#D4AF37]">{item.title}</h3>
                 <p className="text-sm opacity-90">{item.description}</p>
@@ -88,8 +84,8 @@ export default function Promotion() {
         </section>
 
         <section className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-[#FFF8E1] rounded-xl p-8 shadow-lg scroll-reveal card-animate">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-4 animate-fade-in-up">
+          <div className="bg-[#FFF8E1] rounded-xl p-8 shadow-lg">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-4">
               Advertising
             </h3>
             <p className="text-lg text-[#5D4037] mb-6">
@@ -101,8 +97,8 @@ export default function Promotion() {
             </div>
           </div>
 
-          <div className="bg-[#FFF8E1] rounded-xl p-8 shadow-lg scroll-reveal card-animate">
-            <h3 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-4 animate-fade-in-up">
+          <div className="bg-[#FFF8E1] rounded-xl p-8 shadow-lg">
+            <h3 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-4">
               Sales Promotion
             </h3>
             <p className="text-lg text-[#5D4037] mb-6">
@@ -126,15 +122,15 @@ export default function Promotion() {
           </div>
         </section>
 
-        <section className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 scroll-reveal card-animate">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#3E2723] mb-6 text-center animate-fade-in-up">
+        <section className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#3E2723] mb-6 text-center">
             Channels of Distribution
           </h2>
-          <p className="text-lg text-[#5D4037] text-center mb-8 animate-fade-in-up stagger-2">
+          <p className="text-lg text-[#5D4037] text-center mb-8">
             We utilize a multi-channel approach to reach our customers effectively.
           </p>
           <div className="space-y-6 max-w-3xl mx-auto">
-            <div className="bg-gradient-to-r from-[#6D4C41] to-[#5D4037] text-[#FFF8E1] rounded-xl p-6 scroll-reveal card-animate">
+            <div className="bg-gradient-to-r from-[#6D4C41] to-[#5D4037] text-[#FFF8E1] rounded-xl p-6">
               <div className="flex items-start space-x-4">
                 <div className="bg-[#D4AF37] text-[#3E2723] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
                   1
@@ -145,7 +141,7 @@ export default function Promotion() {
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-r from-[#6D4C41] to-[#5D4037] text-[#FFF8E1] rounded-xl p-6 scroll-reveal card-animate">
+            <div className="bg-gradient-to-r from-[#6D4C41] to-[#5D4037] text-[#FFF8E1] rounded-xl p-6">
               <div className="flex items-start space-x-4">
                 <div className="bg-[#D4AF37] text-[#3E2723] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
                   2
@@ -156,7 +152,7 @@ export default function Promotion() {
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-r from-[#6D4C41] to-[#5D4037] text-[#FFF8E1] rounded-xl p-6 scroll-reveal card-animate">
+            <div className="bg-gradient-to-r from-[#6D4C41] to-[#5D4037] text-[#FFF8E1] rounded-xl p-6">
               <div className="flex items-start space-x-4">
                 <div className="bg-[#D4AF37] text-[#3E2723] w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
                   3
