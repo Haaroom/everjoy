@@ -1,3 +1,326 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ========================================
+   GLOBAL ANIMATIONS & TRANSITIONS
+   ======================================== */
+
+/* Fade & Slide Up Animation (Page Entry) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade Only Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide Up Animation (For Sections) */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide In From Right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide Out Left */
+@keyframes slideOutLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+/* Slide Down Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Card Hover Lift Effect */
+@keyframes cardLift {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
+}
+
+/* Subtle Scale Pulse */
+@keyframes scalePulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+/* Reusable Animation Classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-slide-out-left {
+  animation: slideOutLeft 0.3s ease-in forwards;
+}
+
+/* Staggered Animation Delays */
+.stagger-1 {
+  animation-delay: 0ms;
+}
+
+.stagger-2 {
+  animation-delay: 100ms;
+}
+
+.stagger-3 {
+  animation-delay: 200ms;
+}
+
+.stagger-4 {
+  animation-delay: 300ms;
+}
+
+.stagger-5 {
+  animation-delay: 400ms;
+}
+
+.stagger-item {
+  opacity: 0;
+}
+
+.stagger-item.in-view {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Card Styles with Smooth Transitions */
+.card-animate {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.card-animate:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(62, 39, 35, 0.2) !important;
+}
+
+.card-animate img {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-animate:hover img {
+  transform: scale(1.04);
+}
+
+/* Button Micro-Interactions */
+.btn-hover-lift {
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-hover-lift:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4) !important;
+}
+
+.btn-hover-lift:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Link Hover Effect */
+.link-animate {
+  position: relative;
+  transition: color 0.3s ease-out;
+}
+
+.link-animate::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.link-animate:hover::after {
+  width: 100%;
+}
+
+/* Smooth Page Transitions */
+.page-container {
+  animation: fadeInUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Smooth Color Transitions */
+.transition-colors-smooth {
+  transition: color 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+/* Shadow Transition */
+.transition-shadow-smooth {
+  transition: box-shadow 0.3s ease-out;
+}
+
+/* Opacity Transition */
+.transition-opacity-smooth {
+  transition: opacity 0.3s ease-out;
+}
+
+/* Transform Transition */
+.transition-transform-smooth {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========================================
+   SCROLL REVEAL UTILITY
+   ======================================== */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger effect for multiple scroll reveals */
+.scroll-reveal:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.scroll-reveal:nth-child(2) {
+  transition-delay: 80ms;
+}
+
+.scroll-reveal:nth-child(3) {
+  transition-delay: 160ms;
+}
+
+.scroll-reveal:nth-child(4) {
+  transition-delay: 240ms;
+}
+
+.scroll-reveal:nth-child(5) {
+  transition-delay: 320ms;
+}
+
+.scroll-reveal:nth-child(n+6) {
+  transition-delay: calc(80ms * (n - 5));
+}
+
+/* ========================================
+   NAVBAR ANIMATIONS
+   ======================================== */
+
+nav {
+  animation: fadeInDown 0.5s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   SELECTION ANIMATION
+   ======================================== */
+
+select,
+input {
+  transition: all 0.2s ease-out;
+}
+
+select:focus,
+input:focus {
+  transform: scale(1.01);
+}
+
+/* ========================================
+   HERO SECTION ANIMATION
+   ======================================== */
+
+.hero-title {
+  animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-subtitle {
+  animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards;
+  opacity: 0;
+}
+
+.hero-content {
+  animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+  opacity: 0;
+}

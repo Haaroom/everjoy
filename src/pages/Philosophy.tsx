@@ -1,4 +1,8 @@
+import { useScrollRevealChildren } from '../hooks/useScrollReveal';
+
 export default function Philosophy() {
+  const containerRef = useScrollRevealChildren();
+
   const philosophies = [
     {
       number: '1',
@@ -52,13 +56,13 @@ export default function Philosophy() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#5D4037] via-[#4E342E] to-[#3E2723]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 text-center">
+    <div className="min-h-screen bg-gradient-to-br from-[#5D4037] via-[#4E342E] to-[#3E2723] page-container">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" ref={containerRef}>
+        <div className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 mb-12 scroll-reveal card-animate">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#3E2723] mb-6 text-center animate-fade-in-up">
             PHILOSOPHY OF <span className="text-[#D4AF37]">MARKETING</span>
           </h1>
-          <p className="text-lg text-[#5D4037] leading-relaxed text-center max-w-4xl mx-auto mb-8">
+          <p className="text-lg text-[#5D4037] leading-relaxed text-center max-w-4xl mx-auto animate-fade-in-up stagger-2">
             Marketing management philosophies guide businesses in their marketing efforts. Choosing the right philosophy is crucial as it helps identify and fulfill customer needs while benefiting the organization.
           </p>
         </div>
@@ -68,7 +72,7 @@ export default function Philosophy() {
             {philosophies.map((philosophy) => (
               <div
                 key={philosophy.number}
-                className={`rounded-xl p-6 md:p-8 shadow-lg transition-all hover:scale-[1.02] ${
+                className={`rounded-xl p-6 md:p-8 shadow-lg transition-all hover:scale-[1.02] scroll-reveal card-animate ${
                   philosophy.highlight
                     ? 'bg-gradient-to-r from-[#D4AF37] to-[#C5A572] border-4 border-[#FFF8E1]'
                     : 'bg-[#FFF8E1]'
@@ -106,17 +110,17 @@ export default function Philosophy() {
           </div>
         </section>
 
-        <section className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#3E2723] mb-4 text-center">
+        <section className="bg-[#FFF8E1] rounded-2xl shadow-2xl p-8 md:p-12 scroll-reveal card-animate">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#3E2723] mb-4 text-center animate-fade-in-up">
             OUR <span className="text-[#D4AF37]">PHILOSOPHY</span>
           </h2>
-          <div className="bg-gradient-to-r from-[#D4AF37] to-[#C5A572] rounded-xl p-6 mb-8">
+          <div className="bg-gradient-to-r from-[#D4AF37] to-[#C5A572] rounded-xl p-6 mb-8 animate-fade-in-up stagger-2">
             <p className="text-lg md:text-xl text-[#3E2723] font-semibold text-center leading-relaxed">
               Our company follows a Societal Concept Philosophy, ensuring we prioritize societal welfare alongside consumer satisfaction and market share. This benefits society, the environment, and our business.
             </p>
           </div>
 
-          <h3 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-6 text-center">
+          <h3 className="text-2xl md:text-3xl font-bold text-[#3E2723] mb-6 text-center animate-fade-in-up stagger-3">
             Target Customers: <span className="text-[#D4AF37]">[30-40% more healthy]</span>
           </h3>
 
@@ -124,7 +128,7 @@ export default function Philosophy() {
             {targetCustomers.map((customer, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-r from-[#6D4C41] to-[#5D4037] text-[#FFF8E1] rounded-xl p-6 hover:shadow-xl transition-shadow"
+                className="bg-gradient-to-r from-[#6D4C41] to-[#5D4037] text-[#FFF8E1] rounded-xl p-6 hover:shadow-xl transition-shadow scroll-reveal card-animate"
               >
                 <div className="flex items-center mb-3">
                   <div className="bg-[#D4AF37] text-[#3E2723] w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">

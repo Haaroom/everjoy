@@ -14,8 +14,9 @@ export default function Navbar() {
     { path: '/features', label: 'Features' },
     { path: '/pricing', label: 'Pricing' },
     { path: '/promotion', label: 'Promotion' },
+    { path: '/swot', label: 'SWOT' },
+    { path: '/bibliography', label: 'Bibliography' },
     { path: '/contact', label: 'Contact' },
-    { path : '/order' ,label : 'Order'}
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -44,7 +45,7 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-md transition-all ${
+                className={`px-4 py-2 rounded-md transition-all-smooth link-animate ${
                   isActive(link.path)
                     ? 'bg-[#D4AF37] text-[#3E2723] font-semibold'
                     : 'text-[#FFF8E1] hover:bg-[#5D4037] hover:text-[#D4AF37]'
@@ -56,7 +57,7 @@ export default function Navbar() {
           </div>
 
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 transition-transform-smooth"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -65,14 +66,14 @@ export default function Navbar() {
       </div>
 
       {isMenuOpen && (
-        <div className="lg:hidden bg-[#4E342E] border-t border-[#5D4037]">
+        <div className="lg:hidden bg-[#4E342E] border-t border-[#5D4037] animate-slide-down">
           <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-3 rounded-md transition-all ${
+                className={`block px-4 py-3 rounded-md transition-all-smooth ${
                   isActive(link.path)
                     ? 'bg-[#D4AF37] text-[#3E2723] font-semibold'
                     : 'text-[#FFF8E1] hover:bg-[#5D4037]'
