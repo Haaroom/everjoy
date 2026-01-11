@@ -44,13 +44,13 @@ export default function Order() {
 
   return (
     <>
-      <main className="order-page page-container">
-        <div className="order-container scroll-reveal card-animate">
-          <div className="order-header animate-fade-in-up">
+      <main className="order-page">
+        <div className="order-container">
+          <div className="order-header">
             <h1>
               Order <span>EVERJOY</span>
             </h1>
-            <p className="animate-fade-in-up stagger-2">Premium handcrafted chocolate delivery</p>
+            <p>Premium handcrafted chocolate delivery</p>
           </div>
 
           <form className="order-form" onSubmit={handlePurchase}>
@@ -125,7 +125,7 @@ export default function Order() {
             </button>
 
             {confirmed && price && (
-              <div className="confirmation animate-fade-in-up">
+              <div className="confirmation">
                 <div className="confirmation-header">
                   Order Confirmed!
                 </div>
@@ -193,29 +193,25 @@ export default function Order() {
           border: 2px solid #D4AF37;
           font-size: 1rem;
           width: 100%;
-          transition: all 0.2s ease-out;
         }
 
         input:focus,
         select:focus {
           outline: none;
           box-shadow: 0 0 0 2px rgba(212,175,55,.3);
-          transform: scale(1.01);
         }
 
         .price-display {
           opacity: 0;
-          transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+          transition: .3s;
           background: linear-gradient(135deg,#D4AF37,#C5A572);
           padding: 1.5rem;
           border-radius: 1rem;
           text-align: center;
-          transform: translateY(10px);
         }
 
         .price-display.active {
           opacity: 1;
-          transform: translateY(0);
         }
 
         .price-amount {
@@ -230,16 +226,6 @@ export default function Order() {
           font-weight: 600;
           background: #D4AF37;
           cursor: pointer;
-          transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .purchase-btn:not(:disabled):hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
-        }
-
-        .purchase-btn:not(:disabled):active {
-          transform: scale(0.98);
         }
 
         .purchase-btn:disabled {

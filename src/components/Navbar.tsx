@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import logo from '../assets/logo.jpeg';
+import logo1 from '../assets/logo1.jpeg';
 
 
 export default function Navbar() {
@@ -14,7 +14,8 @@ export default function Navbar() {
     { path: '/features', label: 'Features' },
     { path: '/pricing', label: 'Pricing' },
     { path: '/promotion', label: 'Promotion' },
-    { path: '/Order', label: 'Order' }
+    { path: '/Order', label: 'Order' },
+    {path : '/contact' , label : 'Contact'}
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -25,12 +26,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-[#FFF8E1] rounded-full flex items-center justify-center">
-              <img
-  src={logo}
-  alt="Everjoy Logo"
-  className="w-12 h-12 rounded-full object-cover"
-/>
-
+<img src={logo1} alt="logo" className="w-12 h-12 rounded-full object-cover"/>
             </div>
             <div>
               <h1 className="text-2xl font-bold text-[#D4AF37]">EVERJOY</h1>
