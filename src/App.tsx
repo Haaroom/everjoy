@@ -6,7 +6,6 @@ import Philosophy from './pages/Philosophy';
 import Features from './pages/Features';
 import Pricing from './pages/Pricing';
 import Promotion from './pages/Promotion';
-import Bibliography from './pages/Bibliography';
 import Contact from './pages/Contact';
 import Order from './pages/Order';
 
